@@ -1,0 +1,23 @@
+# Build and dependency output; keep package lockfiles in version control.
+/target/
+node_modules/
+/dist/
+/coverage/
+
+# Local Python output from repository tooling.
+__pycache__/
+*.py[cod]
+.venv/
+
+# Local configuration and credentials.
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Editor and operating system files.
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
