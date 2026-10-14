@@ -1,6 +1,7 @@
 # Architecture
 
-**Status: accepted foundation direction; compiler and runtime not implemented.**
+**Status: source and diagnostic foundations implemented; parsing, code emission,
+and runtime behavior remain unimplemented.**
 
 ## Responsibilities and boundaries
 
@@ -33,10 +34,12 @@ and suggest an actionable correction when possible. Invalid input must not
 silently produce runnable output. Optimizations must preserve behavior and source
 mapping; performance claims need measurements.
 
-The boundaries above do not mandate one crate per stage. Introduce modules and
-crates as implementation needs become clear. The minimum Rust version, toolchain,
-dependencies, command-line interface, and module resolution rules will be chosen
-with the first relevant implementation, rather than inferred from another project.
+The boundaries above do not mandate one crate per stage. The current
+[compiler foundation](compiler-foundation.md) is one library with no third-party
+dependencies, Rust 1.88 minimum, and a pinned Rust 1.88.0 development toolchain.
+Stage modules reserve their responsibilities; introduce more crates only when
+implementation needs justify them. Command-line and module resolution APIs
+remain later work.
 
 ## Browser execution and reactivity
 

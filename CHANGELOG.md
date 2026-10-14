@@ -7,6 +7,10 @@ uses the [release policy](docs/releases.md); no version has been released yet.
 
 ### Added
 
+- Rust compiler foundation with source loading, positions, spans, and diagnostics.
+- One library with documented boundaries for the later compiler stages.
+- Rust 1.88.0 toolchain and Linux/Windows formatting, lint, and test checks.
+
 - Group 2 first-subset grammar, module rules, and parsing ambiguity decisions.
 - Component, expression, event, view, keyed-list, and escaping specifications.
 - Illustrative `.qg` source examples; these are not executable yet.

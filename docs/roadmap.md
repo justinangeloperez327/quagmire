@@ -1,6 +1,6 @@
 # Implementation roadmap
 
-This document records the completed Group 1 and Group 2 deliverables.
+This document records the Group 1 through Group 3 deliverables.
 Completion here describes repository work, not published or production-ready
 framework capabilities.
 
@@ -42,3 +42,18 @@ contract follows the accepted punctuation and `computed` terminology from the
 
 Lexer/parser implementation, compilation, runtime behavior, and browser tooling
 remain later work. Do not mark them complete based on design documents alone.
+
+## Group 3 — Rust Compiler Foundation
+
+- [x] Establish one Rust library and stage module boundaries for `lexer`, `parser`,
+  `ast`, `semantic`, `reactive`, `view`, `optimize`, and `codegen`.
+- [x] Implement UTF-8 source loading and stable map-local source IDs.
+- [x] Implement byte offsets, one-based lines/columns, and validated spans.
+- [x] Implement diagnostics with original source locations and optional help.
+- [x] Pin Rust 1.88.0, commit the lockfile, and add Linux/Windows Rust checks.
+- [x] Document and test the [foundation APIs](compiler-foundation.md).
+
+## Group 4 — Lexer
+
+Next: implement code/view tokens and lexical diagnostics on the validated source
+foundation. The reserved lexer module does not tokenize source yet.

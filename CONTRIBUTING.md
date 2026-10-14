@@ -3,18 +3,20 @@
 Start with the [project scope](docs/project.md), [architecture](docs/architecture.md),
 and [current roadmap](docs/roadmap.md). Group 1 establishes the foundation and
 Group 2 specifies the [language](docs/language/grammar.md). Executable compiler
-and runtime work follows those contracts.
+and runtime work follows those contracts. The [compiler foundation](docs/compiler-foundation.md)
+provides source loading and diagnostics.
 
 ## Working locally
 
-For the current foundation, install Git and Python 3.10 or newer. No package
-installation, Rust toolchain, or Node.js installation is required for these
-repository checks.
+For text and link checks, install Git and Python 3.10 or newer; these checks
+need no third-party Python packages. For Rust development, also install rustup
+and use the pinned toolchain described in the compiler foundation guide.
 
 ```sh
 git clone https://github.com/justinangeloperez327/quagmire.git
 cd quagmire
-git switch -c your-change
+git switch main
+git pull --ff-only
 python3 scripts/check_repository.py
 git diff --check
 ```
@@ -28,13 +30,13 @@ or general Markdown grammar. Use inline links for repository file references.
 ## Making a change
 
 1. Inspect the relevant files and open work before assuming a feature is missing.
-2. Create a focused branch from the appropriate base. Keep implementation within
-   the agreed group or issue.
+2. Work directly on `main` for this project and keep implementation within the
+   agreed scope. Do not create a branch or pull request unless requested.
 3. Explain a public syntax or architecture proposal with examples, tradeoffs, and
    alternatives. Keep proposed syntax labeled as proposed until it is accepted.
 4. Implement the change, update its documentation, and run the relevant checks.
-5. Use a descriptive commit message and summarize behavior and verification when
-   submitting a pull request.
+5. Use a descriptive commit message, commit and push directly to `main`, and
+   summarize behavior and verification.
 
 Prefer names that describe developer intent. Fewer characters are not a reason
 to introduce surprising syntax. Keep dependencies purposeful and explain their
@@ -48,10 +50,11 @@ Commit dependency lockfiles once package manifests are introduced.
 
 ## Checks as implementation grows
 
-The [current workflow](.github/workflows/ci.yml) runs the foundation checker. Add
-Rust formatting, Clippy, and tests with the first Rust sources, along with a
-documented minimum supported Rust version and a pinned development toolchain.
-Introduce browser tests when there is executable browser behavior to test.
+The [current workflow](.github/workflows/ci.yml) runs the foundation checker plus
+Rust formatting, Clippy, and tests on Linux and Windows. Rust 1.88 is the minimum;
+`rust-toolchain.toml` pins development to 1.88.0. Run the commands from the
+[compiler foundation guide](docs/compiler-foundation.md) before publishing Rust
+changes. Introduce browser tests when there is executable browser behavior.
 
 Compiler tests should cover valid programs, invalid programs, useful diagnostics,
 and generated output. Runtime tests should check observable DOM behavior,

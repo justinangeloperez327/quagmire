@@ -28,8 +28,8 @@ environment requirements. Internal compiler structures and generated helper
 names are not public APIs. Compiler/runtime compatibility still requires
 integration tests and coordinated releases.
 
-Document a minimum supported Rust version when introducing Rust packages. Raising
-that minimum, dropping a supported browser generation, or raising a documented
+The compiler foundation requires Rust 1.88 and uses a pinned 1.88.0 toolchain.
+Raising that minimum, dropping a supported browser generation, or raising a documented
 tooling requirement counts as a compatibility change under this policy. Publish
 the exact supported environment matrix for each release so a rolling policy does
 not silently change an already released version's guarantees.
@@ -57,6 +57,5 @@ is implemented. A repository name does not establish package-name availability.
 
 The [continuous integration workflow](../.github/workflows/ci.yml) checks the
 foundation on branch pushes and pull requests. It has read-only repository
-permissions and no release credentials. Rust and browser checks will be added
-alongside the corresponding source, rather than reported as passing before any
-such implementation exists.
+permissions and no release credentials. Rust formatting, Clippy, and
+source/diagnostic tests now run on Linux and Windows. Browser checks will be added alongside executable browser behavior.

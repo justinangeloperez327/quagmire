@@ -1,0 +1,18 @@
+[package]
+name = "quagmire-compiler"
+version = "0.1.0-alpha.1"
+edition = "2024"
+rust-version = "1.88"
+license = "MIT"
+description = "Source and diagnostic foundations for the Quagmire frontend compiler"
+repository = "https://github.com/justinangeloperez327/quagmire"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = "warn"
