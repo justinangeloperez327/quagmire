@@ -1,0 +1,16 @@
+export component Counter(initial = 0) {
+  state count = initial;
+  computed doubled = count * 2;
+
+  function increment() {
+    count = count + 1;
+  }
+
+  view {
+    <section>
+      <p>Count: {count}</p>
+      <p>Double: {doubled}</p>
+      <button type="button" on:click={increment}>Add one</button>
+    </section>
+  }
+}

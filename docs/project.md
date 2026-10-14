@@ -41,10 +41,10 @@ operations that cannot be resolved at build time.
 | View elements | HTML-like angle brackets: `<>` |
 | Derived state terminology | `computed`, read-only with automatic dependencies |
 
-These conventions are constraints for Group 2, not a complete grammar. The exact
-declarations, operator rules, interpolation, event syntax, imports, and error
-recovery must be specified there before they are implemented. In particular,
-sharing `{}` between objects and blocks requires an explicit grammar rule.
+These conventions are expanded by the [Group 2 grammar](language/grammar.md)
+and its component, expression, and view specifications. The grammar explicitly
+separates object literals, statement blocks, and view interpolation by context.
+These are implementation contracts; no parser or compiler exists yet.
 
 ## Initial product scope
 

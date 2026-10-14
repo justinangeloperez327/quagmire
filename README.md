@@ -7,10 +7,10 @@ Quagmire will compile `.qg` source files with Rust tooling into JavaScript modul
 and CSS. The browser will run the generated JavaScript with a small runtime that
 updates the Document Object Model (DOM) directly.
 
-**Status: Group 1 — Project Foundation.** This repository currently contains the
-project decisions, documentation, and working repository checks. The grammar,
-compiler, browser runtime, and command-line tools are not implemented yet. There
-is no installable Quagmire release.
+**Status: Group 2 — Language Design and Grammar.** This repository contains
+project decisions, the first-subset language specification, illustrative `.qg`
+examples, and working repository checks. The compiler, browser runtime, and
+command-line tools are not implemented yet. There is no installable release.
 
 ## Direction
 
@@ -33,10 +33,14 @@ the implementation grows.
 | Document | Purpose |
 | --- | --- |
 | [Project scope and principles](docs/project.md) | Goals, boundaries, and accepted source conventions |
+| [Language grammar](docs/language/grammar.md) | Source syntax, modules, and parsing decisions |
+| [Components and state](docs/language/components.md) | Props, state, computed values, and functions |
+| [Expressions](docs/language/expressions.md) | Values, operators, and access rules |
+| [Views](docs/language/views.md) | Elements, events, conditions, lists, and escaping |
 | [Architecture](docs/architecture.md) | Compiler, output, runtime, and animation responsibilities |
 | [Browser support](docs/browser-support.md) | Planned browser targets and compatibility gates |
 | [Release policy](docs/releases.md) | Versioning, compatibility, and release requirements |
-| [Roadmap](docs/roadmap.md) | Group 1 checklist and the Group 2 handoff |
+| [Roadmap](docs/roadmap.md) | Completed foundation and language-design checklists |
 | [Contributing](CONTRIBUTING.md) | Development workflow and local checks |
 | [Security](SECURITY.md) | Reporting issues and implementation requirements |
 | [Changelog](CHANGELOG.md) | Recorded changes; no release has been published |
@@ -54,7 +58,9 @@ links in Markdown. They need no third-party Python packages. The same command
 runs in [continuous integration](.github/workflows/ci.yml) on branch pushes and
 pull requests. It does not compile Quagmire or test browsers.
 
-Group 2 will define the language grammar before compiler implementation starts.
+Group 2 defines the language contract before compiler implementation starts.
+The [language examples](examples/language/README.md) illustrate that contract;
+repository checks do not parse or execute them.
 
 ## License
 

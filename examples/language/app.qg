@@ -1,0 +1,32 @@
+import { Counter } from "./counter.qg";
+
+export component App() {
+  const counters = [
+    { id: "first", name: "First counter", initial: 0 },
+    { id: "second", name: "Second counter", initial: 5 },
+  ];
+  state visible = true;
+
+  function toggle() {
+    visible = !visible;
+  }
+
+  view {
+    <main>
+      <h1>Quagmire counters</h1>
+      <button type="button" on:click={toggle}>Toggle counters</button>
+      if (visible) {
+        <ul>
+          for (counter in counters) {
+            <li key={counter.id}>
+              <h2>{counter.name}</h2>
+              <Counter initial={counter.initial} />
+            </li>
+          }
+        </ul>
+      } else {
+        <p>Counters are hidden.</p>
+      }
+    </main>
+  }
+}

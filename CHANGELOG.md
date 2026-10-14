@@ -7,6 +7,11 @@ uses the [release policy](docs/releases.md); no version has been released yet.
 
 ### Added
 
+- Group 2 first-subset grammar, module rules, and parsing ambiguity decisions.
+- Component, expression, event, view, keyed-list, and escaping specifications.
+- Illustrative `.qg` source examples; these are not executable yet.
+- Required language documents in the repository checker.
+
 - Group 1 project scope and developer experience principles.
 - Architecture decisions for Rust compiler tooling, `.qg` source files,
   JavaScript modules, direct DOM updates, CSS animation, and optional WebAssembly.
