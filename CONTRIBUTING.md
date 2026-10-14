@@ -1,8 +1,9 @@
 # Contributing to Quagmire
 
 Start with the [project scope](docs/project.md), [architecture](docs/architecture.md),
-and [current roadmap](docs/roadmap.md). Group 1 establishes the foundation. Language
-design is the next group; executable compiler and runtime work follows it.
+and [current roadmap](docs/roadmap.md). Group 1 establishes the foundation and
+Group 2 specifies the [language](docs/language/grammar.md). Executable compiler
+and runtime work follows those contracts.
 
 ## Working locally
 
@@ -16,14 +17,6 @@ cd quagmire
 git switch -c your-change
 python3 scripts/check_repository.py
 git diff --check
-```
-
-The foundation is initially delivered on `group-1-project-foundation`. Until that
-branch is merged into `main`, check it out before creating a dependent branch:
-
-```sh
-git switch group-1-project-foundation
-git switch -c your-dependent-change
 ```
 
 The checker examines tracked and non-ignored untracked text files, so it also

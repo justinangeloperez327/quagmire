@@ -1,6 +1,6 @@
 # Implementation roadmap
 
-This document records the Group 1 deliverables and the immediate Group 2 handoff.
+This document records the completed Group 1 and Group 2 deliverables.
 Completion here describes repository work, not published or production-ready
 framework capabilities.
 
@@ -24,19 +24,21 @@ framework capabilities.
 
 ## Group 2 — Language Design and Grammar
 
-**Next; not implemented in Group 1.** Specify the language before writing the
-parser. Accepted punctuation and `computed` terminology carry forward from the
-[project decisions](project.md).
+**Specification complete; parser and runtime not implemented.** The language
+contract follows the accepted punctuation and `computed` terminology from the
+[project decisions](project.md). Start with the [grammar](language/grammar.md).
 
-- [ ] Define `component`, `state`, `computed`, `function`, and `view` declarations.
-- [ ] Define `if`, `else`, `for`, `in`, and `return` behavior and syntax.
-- [ ] Define imports, exports, parameters, variables, and literals.
-- [ ] Define expressions, operators, precedence, and associativity.
-- [ ] Define HTML-like elements, attributes, events, interpolation, and nesting.
-- [ ] Specify escaping and the separation between source syntax and emitted text.
-- [ ] Add `docs/language/grammar.md`, `docs/language/components.md`,
+- [x] Define `component`, `state`, `computed`, `function`, and `view` declarations.
+- [x] Define `if`, `else`, `for`, `in`, and `return` behavior and syntax.
+- [x] Define imports, exports, parameters, variables, and literals.
+- [x] Define expressions, operators, precedence, and associativity.
+- [x] Define HTML-like elements, attributes, events, interpolation, and nesting.
+- [x] Specify escaping and the separation between source syntax and emitted text.
+- [x] Add `docs/language/grammar.md`, `docs/language/components.md`,
   `docs/language/expressions.md`, and `docs/language/views.md` with valid and invalid
   examples, ambiguity decisions, and the first supported subset.
+- [x] Add illustrative [source examples](../examples/language/README.md) and
+  require the language documents in repository checks.
 
 Lexer/parser implementation, compilation, runtime behavior, and browser tooling
 remain later work. Do not mark them complete based on design documents alone.
