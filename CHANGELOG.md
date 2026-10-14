@@ -7,6 +7,10 @@ uses the [release policy](docs/releases.md); no version has been released yet.
 
 ### Added
 
+- Context-driven lexer for code, tag attributes, and view text with source spans.
+- Decoded literals/entities, lookahead, and lexical diagnostics for malformed input.
+- Lexer regression tests and a compiled documentation example.
+
 - Rust compiler foundation with source loading, positions, spans, and diagnostics.
 - One library with documented boundaries for the later compiler stages.
 - Rust 1.88.0 toolchain and Linux/Windows formatting, lint, and test checks.

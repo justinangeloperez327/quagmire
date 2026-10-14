@@ -1,6 +1,6 @@
 # Implementation roadmap
 
-This document records the Group 1 through Group 3 deliverables.
+This document records the Group 1 through Group 4 deliverables.
 Completion here describes repository work, not published or production-ready
 framework capabilities.
 
@@ -55,5 +55,12 @@ remain later work. Do not mark them complete based on design documents alone.
 
 ## Group 4 — Lexer
 
-Next: implement code/view tokens and lexical diagnostics on the validated source
-foundation. The reserved lexer module does not tokenize source yet.
+- [x] Implement code, tag, and text modes with source spans and lookahead.
+- [x] Tokenize keywords, identifiers, names, literals, operators, and punctuation.
+- [x] Handle comments, string escapes, finite numbers, and view entities.
+- [x] Preserve text semantics and expose lexical diagnostics.
+- [x] Test nested view/code contexts, malformed input, UTF-8 spans, and EOF.
+- [x] Document the [lexer API](lexer.md) and its parser-driven mode contract.
+
+Next: implement the parser and abstract syntax tree to drive lexer modes and
+validate complete programs. The lexer does not enforce grammar or semantics.

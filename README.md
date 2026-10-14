@@ -7,10 +7,10 @@ Quagmire will compile `.qg` source files with Rust tooling into JavaScript modul
 and CSS. The browser will run the generated JavaScript with a small runtime that
 updates the Document Object Model (DOM) directly.
 
-**Status: Group 3 — Rust Compiler Foundation.** The repository includes the
-language specification and a Rust library for source loading, positions, spans,
-and diagnostics. Parsing, code generation, the browser runtime, and command-line
-tools are not implemented yet. There is no installable framework release.
+**Status: Group 4 — Lexer.** The Rust compiler library provides source loading,
+positions, spans, diagnostics, and context-driven code/tag/text tokenization.
+Parsing, code generation, the browser runtime, and command-line tools are not
+implemented yet. There is no installable framework release.
 
 ## Direction
 
@@ -34,6 +34,7 @@ the implementation grows.
 | --- | --- |
 | [Project scope and principles](docs/project.md) | Goals, boundaries, and accepted source conventions |
 | [Compiler foundation](docs/compiler-foundation.md) | Rust source APIs, diagnostics, and local verification |
+| [Lexer](docs/lexer.md) | Code, tag, and text tokenization with diagnostics |
 | [Language grammar](docs/language/grammar.md) | Source syntax, modules, and parsing decisions |
 | [Components and state](docs/language/components.md) | Props, state, computed values, and functions |
 | [Expressions](docs/language/expressions.md) | Values, operators, and access rules |

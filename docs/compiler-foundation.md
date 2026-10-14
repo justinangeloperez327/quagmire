@@ -1,7 +1,8 @@
 # Compiler foundation
 
 Quagmire's first Rust implementation provides source loading, validated spans,
-positions, and plain-text diagnostics. It does not parse `.qg` or emit JavaScript.
+positions, and plain-text diagnostics. It does not parse `.qg` or emit JavaScript. The [lexer](lexer.md) now adds
+context-driven tokenization on this foundation.
 
 The package is one library, `quagmire-compiler`, with no third-party dependencies.
 It uses Rust 1.88 or newer, edition 2024. Development and continuous integration
@@ -60,7 +61,7 @@ assignments will be established with the parser implementation.
 | `source` | File loading and positions | Implemented |
 | `span` | Source IDs and validated ranges | Implemented |
 | `diagnostic` | Diagnostic data and text rendering | Implemented |
-| `lexer` | Code and view tokenization | Reserved for Group 4 |
+| `lexer` | Code, tag, and view text tokenization | Implemented |
 | `parser` | Grammar parsing and recovery | Reserved |
 | `ast` | Declaration, expression, and view structures | Reserved |
 | `semantic` | Names, assignments, and purity | Reserved |
@@ -89,4 +90,4 @@ Tests exercise Unicode offsets, line endings, EOF, span failures, stable source
 IDs, actual source file loading, invalid UTF-8, and diagnostic formatting.
 Continuous integration runs the Rust checks on Linux and Windows. These checks
 validate compiler foundations, not browser behavior or the language examples'
-syntax. Lexer implementation is the next step.
+syntax. Parser and abstract syntax tree implementation is the next step.

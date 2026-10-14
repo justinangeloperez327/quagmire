@@ -30,7 +30,9 @@ separators, or big integers in the first subset.
 
 Strings use matching single or double quotes. Supported escapes are `\\`,
 `\"`, `\'`, `\n`, `\r`, `\t`, and `\uXXXX` (four hexadecimal digits).
-Reject unknown escapes and unescaped line endings. Backtick strings and string
+High-surrogate escapes require a following low-surrogate escape; lone surrogates
+are invalid. Valid pairs decode to one Unicode scalar. Reject unknown escapes
+and unescaped line endings. Backtick strings and string
 interpolation inside a string literal are deferred.
 
 Semicolons terminate imports, variable declarations, computed declarations,
@@ -116,7 +118,7 @@ name resolution, purity, tag matching, attribute safety, or loop key validity.
 | `{}` in an element's children or attribute value | Expression interpolation; nested `{}` may be an object |
 | `<` in an expression | Comparison operator; elements are never expression values |
 | `<` while reading view children | Start an element; use `&lt;` for literal text |
-| `if (` or `for (` at a view node boundary | View control directive; use string interpolation to display that text literally |
+| `if (` or `for (` at a view node boundary | View directive; only whitespace may separate the keyword and `(`; use string interpolation for literal text |
 | Closing element | Must match the opening tag exactly |
 | `else` | Belongs to the nearest preceding `if`; braces are always required |
 
