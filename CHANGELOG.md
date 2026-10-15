@@ -7,6 +7,10 @@ uses the [release policy](docs/releases.md); no version has been released yet.
 
 ### Added
 
+- Complete module parser and spanned abstract syntax tree for the first grammar subset.
+- Structural view/statement diagnostics and bounded parsing/expression-tree depth.
+- Parser tests for real examples, invalid syntax, precedence, and nested views.
+
 - Context-driven lexer for code, tag attributes, and view text with source spans.
 - Decoded literals/entities, lookahead, and lexical diagnostics for malformed input.
 - Lexer regression tests and a compiled documentation example.

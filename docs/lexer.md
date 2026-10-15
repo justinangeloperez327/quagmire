@@ -20,7 +20,7 @@ assert_eq!(lexer.next_token(LexMode::Code).unwrap(), first);
 assert_eq!(sources.slice(first.span).unwrap(), "state");
 ```
 
-The future parser chooses a mode for every token. Mode selection is explicit
+The [parser](parser.md) chooses a mode for every token. Mode selection is explicit
 because source characters have different meanings in different grammar contexts:
 
 | Mode | Behavior |
@@ -96,6 +96,6 @@ literal failures, code versus text comments, entities, view whitespace, nested
 expression contexts, lookahead, and EOF. Linux and Windows run the same tests.
 The documentation API example is also compiled as a Rust documentation test.
 
-The next stage is the parser and abstract syntax tree. It will drive mode changes,
-match delimiters and tags, enforce declarations and root-element rules, and parse
-the `.qg` example files. Lexer success alone does not prove grammar or semantics.
+The [parser](parser.md) now drives mode changes, matches delimiters and tags,
+enforces declaration/root-element rules, and parses the `.qg` examples. Lexer
+success alone does not prove grammar or semantics.

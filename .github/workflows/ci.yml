@@ -48,5 +48,5 @@ jobs:
         run: cargo fmt --all -- --check
       - name: Check lints
         run: cargo clippy --all-targets --locked -- -D warnings
-      - name: Test source and diagnostic behavior
+      - name: Test compiler behavior
         run: cargo test --locked

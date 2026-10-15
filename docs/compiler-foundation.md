@@ -1,8 +1,9 @@
 # Compiler foundation
 
 Quagmire's first Rust implementation provides source loading, validated spans,
-positions, and plain-text diagnostics. It does not parse `.qg` or emit JavaScript. The [lexer](lexer.md) now adds
-context-driven tokenization on this foundation.
+positions, and plain-text diagnostics. The [lexer](lexer.md) and
+[parser](parser.md) now tokenize and parse `.qg` on this foundation. JavaScript
+emission is not implemented.
 
 The package is one library, `quagmire-compiler`, with no third-party dependencies.
 It uses Rust 1.88 or newer, edition 2024. Development and continuous integration
@@ -51,8 +52,8 @@ to four spaces; terminal controls are escaped in paths, messages, and snippets.
 Wide characters and combining sequences may not align with terminal display
 cells. Full terminal-width handling, multiple labels, and color are later work.
 
-The diagnostic codes in tests/examples demonstrate formatting; parser error-code
-assignments will be established with the parser implementation.
+The diagnostic codes in foundation tests/examples demonstrate formatting.
+The [lexer](lexer.md) and [parser](parser.md) guides define the assigned codes.
 
 ## Module boundaries
 
@@ -62,8 +63,8 @@ assignments will be established with the parser implementation.
 | `span` | Source IDs and validated ranges | Implemented |
 | `diagnostic` | Diagnostic data and text rendering | Implemented |
 | `lexer` | Code, tag, and view text tokenization | Implemented |
-| `parser` | Grammar parsing and recovery | Reserved |
-| `ast` | Declaration, expression, and view structures | Reserved |
+| `parser` | Grammar parsing and fail-fast diagnostics | Implemented |
+| `ast` | Declaration, expression, and view structures | Implemented |
 | `semantic` | Names, assignments, and purity | Reserved |
 | `reactive` | Reactive dependency analysis | Reserved |
 | `view` | View lowering and validation | Reserved |
@@ -89,5 +90,6 @@ python3 scripts/check_repository.py
 Tests exercise Unicode offsets, line endings, EOF, span failures, stable source
 IDs, actual source file loading, invalid UTF-8, and diagnostic formatting.
 Continuous integration runs the Rust checks on Linux and Windows. These checks
-validate compiler foundations, not browser behavior or the language examples'
-syntax. Parser and abstract syntax tree implementation is the next step.
+validate their implemented layers; parser tests also validate the language
+examples. No test currently demonstrates browser behavior. Semantic analysis
+is the next stage.

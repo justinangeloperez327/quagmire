@@ -1,8 +1,9 @@
-//! Foundations for the Quagmire compiler. Parsing and code generation are not
-//! implemented yet; unimplemented stage modules reserve their responsibilities.
+//! Source, lexer, and parser APIs for Quagmire. Semantic analysis, browser code
+//! generation, and runtime execution are not implemented yet.
 
 #![doc = include_str!("../docs/compiler-foundation.md")]
 #![doc = include_str!("../docs/lexer.md")]
+#![doc = include_str!("../docs/parser.md")]
 
 pub mod ast;
 pub mod codegen;
@@ -18,5 +19,6 @@ pub mod view;
 
 pub use diagnostic::{Diagnostic, Severity};
 pub use lexer::{Keyword, LexMode, Lexer, Symbol, Token, TokenKind};
+pub use parser::Parser;
 pub use source::{Position, SourceFile, SourceMap};
 pub use span::{SourceId, Span, SpanError};

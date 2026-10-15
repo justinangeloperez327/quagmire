@@ -44,7 +44,8 @@ operations that cannot be resolved at build time.
 These conventions are expanded by the [Group 2 grammar](language/grammar.md)
 and its component, expression, and view specifications. The grammar explicitly
 separates object literals, statement blocks, and view interpolation by context.
-These are implementation contracts; no parser or compiler exists yet.
+The [parser](parser.md) implements the syntax contract. Semantic analysis, code
+generation, and runtime behavior remain to be implemented.
 
 ## Initial product scope
 

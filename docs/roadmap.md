@@ -1,6 +1,6 @@
 # Implementation roadmap
 
-This document records the Group 1 through Group 4 deliverables.
+This document records the compiler implementation deliverables.
 Completion here describes repository work, not published or production-ready
 framework capabilities.
 
@@ -24,7 +24,7 @@ framework capabilities.
 
 ## Group 2 — Language Design and Grammar
 
-**Specification complete; parser and runtime not implemented.** The language
+**Specification complete; syntax parsing implemented; runtime not implemented.** The language
 contract follows the accepted punctuation and `computed` terminology from the
 [project decisions](project.md). Start with the [grammar](language/grammar.md).
 
@@ -40,8 +40,8 @@ contract follows the accepted punctuation and `computed` terminology from the
 - [x] Add illustrative [source examples](../examples/language/README.md) and
   require the language documents in repository checks.
 
-Lexer/parser implementation, compilation, runtime behavior, and browser tooling
-remain later work. Do not mark them complete based on design documents alone.
+Lexer and parser implementation are recorded below. Semantic analysis, code
+emission, runtime behavior, and browser tooling remain later work.
 
 ## Group 3 — Rust Compiler Foundation
 
@@ -62,5 +62,19 @@ remain later work. Do not mark them complete based on design documents alone.
 - [x] Test nested view/code contexts, malformed input, UTF-8 spans, and EOF.
 - [x] Document the [lexer API](lexer.md) and its parser-driven mode contract.
 
-Next: implement the parser and abstract syntax tree to drive lexer modes and
-validate complete programs. The lexer does not enforce grammar or semantics.
+The parser now drives lexer modes and validates complete syntax. The lexer alone
+does not enforce grammar or semantics.
+
+## Parser and Abstract Syntax Tree
+
+- [x] Parse full modules, imports, declarations, functions, statements, and expressions.
+- [x] Drive lexical modes for elements, attributes, text, interpolation, and controls.
+- [x] Preserve spans and declaration intent in typed syntax nodes.
+- [x] Enforce structural grammar, element matching, and keyed-list root syntax.
+- [x] Report fail-fast diagnostics without returning a successful partial module.
+- [x] Bound recursive parsing and expression-tree depth.
+- [x] Parse checked-in examples and test invalid input and precedence.
+
+Next: semantic analysis for scopes, names, immutable bindings, parameter/call
+rules, purity, and source/module constraints. Parsing alone does not validate
+those requirements or produce runnable browser output.

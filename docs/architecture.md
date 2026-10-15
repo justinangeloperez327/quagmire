@@ -1,7 +1,7 @@
 # Architecture
 
-**Status: source and diagnostic foundations implemented; parsing, code emission,
-and runtime behavior remain unimplemented.**
+**Status: source loading, diagnostics, lexing, and parsing are implemented.
+Semantic analysis, code emission, and runtime behavior remain unimplemented.**
 
 ## Responsibilities and boundaries
 

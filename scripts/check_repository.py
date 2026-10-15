@@ -22,6 +22,7 @@ REQUIRED_FILES = (
     "docs/roadmap.md",
     "docs/compiler-foundation.md",
     "docs/lexer.md",
+    "docs/parser.md",
     "Cargo.toml",
     "Cargo.lock",
     "rust-toolchain.toml",

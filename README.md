@@ -7,10 +7,10 @@ Quagmire will compile `.qg` source files with Rust tooling into JavaScript modul
 and CSS. The browser will run the generated JavaScript with a small runtime that
 updates the Document Object Model (DOM) directly.
 
-**Status: Group 4 — Lexer.** The Rust compiler library provides source loading,
-positions, spans, diagnostics, and context-driven code/tag/text tokenization.
-Parsing, code generation, the browser runtime, and command-line tools are not
-implemented yet. There is no installable framework release.
+**Status: Parser and Syntax Tree.** The Rust library loads `.qg` sources,
+tokenizes code/tags/text, and parses complete modules into spanned syntax trees.
+Semantic analysis, code generation, the browser runtime, and command-line tools
+are not implemented yet. There is no installable framework release.
 
 ## Direction
 
@@ -35,6 +35,7 @@ the implementation grows.
 | [Project scope and principles](docs/project.md) | Goals, boundaries, and accepted source conventions |
 | [Compiler foundation](docs/compiler-foundation.md) | Rust source APIs, diagnostics, and local verification |
 | [Lexer](docs/lexer.md) | Code, tag, and text tokenization with diagnostics |
+| [Parser](docs/parser.md) | Complete module parsing, syntax trees, and structural diagnostics |
 | [Language grammar](docs/language/grammar.md) | Source syntax, modules, and parsing decisions |
 | [Components and state](docs/language/components.md) | Props, state, computed values, and functions |
 | [Expressions](docs/language/expressions.md) | Values, operators, and access rules |
@@ -58,13 +59,13 @@ python3 scripts/check_repository.py
 These checks validate required foundation files, text formatting, and local file
 links in Markdown. They need no third-party Python packages. The same command
 runs in [continuous integration](.github/workflows/ci.yml) on branch pushes and
-pull requests. It does not parse Quagmire or test browsers. Rust formatting, lints, and tests
+pull requests. The Python checker does not parse Quagmire or test browsers. Rust formatting, lints, and tests
 also run in continuous integration on Linux and Windows. See the
 [compiler foundation guide](docs/compiler-foundation.md) for Rust commands.
 
 Group 2 defines the language contract before compiler implementation starts.
-The [language examples](examples/language/README.md) illustrate that contract;
-repository checks do not parse or execute them.
+The [language examples](examples/language/README.md) illustrate that contract
+and are parsed by Rust tests. They are not compiled or executed in a browser.
 
 ## License
 
